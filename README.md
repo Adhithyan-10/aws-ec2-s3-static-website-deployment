@@ -75,7 +75,7 @@ An Ubuntu-based EC2 instance was configured to run a Node.js server which delive
 - Web application hosted successfully on EC2.
 - Image assets loaded from S3 using public URLs.
 - Application accessed from browser using:
--   http://13.126.27.91
+-   http://13.126.27.91 *(Instance terminated after completion to avoid charges)*
 
 
 
