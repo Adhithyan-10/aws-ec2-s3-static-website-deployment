@@ -1,63 +1,106 @@
-# AWS EC2 and S3 Static Website Deployment
+<h1 align="center">🚀 AWS EC2 + S3 Static Website Deployment</h1>
 
-This project involves deploying a static web application on Amazon Web Services using an EC2 instance as the compute layer and S3 buckets for hosting static image assets. The project replicates a real-world cloud deployment workflow, where the frontend application is hosted on a cloud virtual machine and static resources are stored in object storage. The implementation focuses on building an understanding of cloud infrastructure setup, access policy configuration, networking control, and application hosting within a scalable cloud environment.
+<p align="center">
+Deploying a cloud-hosted web application using Amazon EC2, S3, IAM Roles and Security Groups.
+<br>
+Built as part of a cloud internship to gain real-world AWS deployment experience.
+</p>
 
-## Project Overview
+---
 
-The primary objective of this project was to gain practical experience with AWS services by deploying an application in a controlled and production-like environment. In this project, an Ubuntu-based EC2 instance was configured to run a Node.js web server that serves the application frontend. Multiple S3 buckets were used to store required image files, which were then accessed via publicly available object URLs. IAM role-based access control was implemented to ensure secure resource interactions without embedding credentials in the application. Network traffic flow was managed using Security Group rules to allow controlled HTTP access to the server. 
+## 🌐 Project Overview
 
-This project provides hands-on exposure to essential cloud computing concepts including virtualization, object storage management, identity and access control, and web hosting with publicly accessible endpoints. It demonstrates how different AWS services integrate to create a functional and scalable cloud-hosted application.
+This project demonstrates the deployment of a static web application hosted on an **Amazon EC2** instance, while image assets are stored and delivered from **Amazon S3**.  
+Secure access was configured using **IAM Roles**, and traffic control was managed via **Security Groups**.
 
-## Architecture
+The goal was to understand **real-world cloud application deployment workflows**, resource permissions, and web hosting fundamentals in AWS.
 
-User Request → EC2 Web Server (Node.js) → Requests Image Assets → S3 Buckets
+---
 
-AWS Services Used:
-- Amazon EC2 (Virtual server hosting the application)
-- Amazon S3 (Object storage containing publicly served image files)
-- IAM Role and Policies (For permission and access control)
-- Security Groups (For network level access configuration)
-- VPC Networking (Underlying cloud network structure)
+## 🏗️ Cloud Architecture Diagram
 
-## Repository Structure
+      ┌─────────────┐
+      │   User      │
+      └─────┬───────┘
+            │ (HTTP Request)
+            ▼
+    ┌───────────────────┐
+    │   EC2 Instance    │  ← Runs Node.js Web Server
+    └─────┬─────────────┘
+          │ (Fetches Images)
+          ▼
+   ┌───────────────────┐
+   │  S3 Buckets       │  ← Hosts static image assets
+   └───────────────────┘
+
+---
+
+## 🧠 Key AWS Services Used
+
+| Service | Role in Project |
+|--------|----------------|
+| **EC2** | Hosted the web application (Node.js server) |
+| **S3** | Stored and served image files publicly |
+| **IAM Role** | Allowed EC2 to interact securely (no hardcoded credentials) |
+| **Security Groups** | Controlled inbound HTTP traffic (port 80) |
+| **VPC** | Provided networking environment |
+
+---
+
+## 📂 Repository Structure
 
 aws-ec2-s3-static-website-deployment/
 │
-├── app.js                        # Node.js web server
-├── completion.html               # Webpage displayed to the user
-├── README.md                     # Project documentation
-└── Adhithyan_AWS_Project_Report.pdf   # Detailed implementation report with screenshots
-
-## Steps Performed
-
-1. Launched an Ubuntu-based EC2 instance (t2.micro, Free Tier eligibility).
-2. Installed Node.js runtime environment and uploaded the application files.
-3. Created three Amazon S3 buckets and uploaded the project’s image assets.
-4. Configured S3 bucket permissions by disabling "Block Public Access" and enabling controlled public read access.
-5. Applied a bucket policy to allow object-level public access where required.
-6. Updated the HTML file to reference S3 object URLs for embedded images.
-7. Configured EC2 Security Group to allow inbound HTTP (port 80) traffic.
-8. Started the application using:
+├── app.js # Node.js backend web server
+├── completion.html # Web page content displayed to users
+├── README.md # Documentation (this file)
+└── Adhithyan_AWS_Project_Report.pdf # Detailed screenshots & workflow document
 
 
-## Result
+---
 
-- The web application was successfully hosted on the EC2 instance.
-- Images were served directly from the S3 buckets through public object links.
-- The application was accessible via the EC2 Public IP in a standard web browser.
+## ⚙️ Deployment Steps
 
-## Skills Demonstrated
+1. **Launched an Ubuntu EC2 Instance** (t2.micro - Free Tier)
+2. Connected via **EC2 Instance Connect**
+3. Installed Node.js:
+   ```bash
+   sudo apt update
+   sudo apt install nodejs npm -y
+4.Created S3 buckets and uploaded images
+5.Disabled Block Public Access for the bucket
+6.Added S3 Bucket Policy to allow public object access
+7.Updated completion.html to reference S3 public URLs
+8.Allowed inbound HTTP traffic:
+  Security Group → Inbound Rules → Add → Port 80 → 0.0.0.0/0
+9.Started the server:
+  sudo node app.js
 
-- AWS Compute and Storage Configuration
-- Linux Server and Package Management
-- S3 Object Hosting and Access Control
-- IAM Role and Policy Configuration
-- Network Security Implementation using Security Groups
-- Hosting and Running a Node.js Application on Cloud Infrastructure
 
-## Author
+✅ Final Result
+---------------------------
+Website successfully hosted on EC2
+Images served directly from S3 over HTTP
+Application accessible publicly via EC2 Public IP
+  http://13.126.27.91
 
-ADHITHYAN SIVARAMAN T  
-Cloud & DevOps Enthusiast  
-GitHub: https://github.com/Adhithyan-10  
+🎯 Skills Demonstrated
+Skill	                          Level Gained
+-----------------------------------------------------
+Cloud Infrastructure Setup	    ✅ Hands-On
+Linux Server Configuration	    ✅ Practical
+S3 Public Hosting & Policies	  ✅ Applied
+IAM Security Best Practices	    ✅ Understood
+Node.js Server Deployment	      ✅ Implemented
+Network & Port Security	        ✅ Configured
+
+
+🧑‍💻 Author
+
+ADHITHYAN SIVARAMAN T
+Cloud & DevOps Enthusiast
+B.Tech in Computer Science & Engineering
+GitHub: https://github.com/Adhithyan-10
 LinkedIn: www.linkedin.com/in/adhithyan-sivaraman-t-399b5b362
+
+
