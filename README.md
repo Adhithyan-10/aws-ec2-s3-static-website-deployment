@@ -45,14 +45,16 @@ An Ubuntu-based EC2 instance was configured to run a Node.js server which delive
 
 ---
 
-<h2 style="color:#2F80ED;">📂 Repository Structure</h2>
+### 📂 Repository Structure
 
-aws-ec2-s3-static-website-deployment/
-│
-├── app.js                          (Node.js web server)
-├── completion.html                 (Webpage displayed to user)
-├── README.md                       (Documentation)
-└── Adhithyan_AWS_Project_Report.pdf (Project report with screenshots)
+| File / Folder Name                     | Description                                      |
+|----------------------------------------|--------------------------------------------------|
+| `app.js`                               | Node.js backend server to host static webpage.   |
+| `completion.html`                      | Main HTML page displayed to users.               |
+| `README.md`                            | Project documentation with deployment steps.     |
+| `Adhithyan_AWS_Project_Report.pdf`     | Full project report with screenshots.            |
+
+
 
 ## Deployment Steps Performed
 1. Launched Ubuntu EC2 instance (t2.micro – Free Tier).
